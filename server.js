@@ -10,7 +10,7 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-
+app.use(express.static('public'));
 
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -86,9 +86,11 @@ app.get('/get-data', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from database.' });
   }
 });
-app.get('/', (req, res) => {
-  res.send('Hello, this is the Portfolio Database API.');
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
+
 
 // Start the server
 app.listen(port, () => {
