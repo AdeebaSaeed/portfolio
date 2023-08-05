@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path');
 const mysql = require('mysql2/promise');
 const session = require('express-session');
 const cors = require('cors');
@@ -88,9 +89,13 @@ app.get('/get-data', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'portfolio-db', 'index.html'));
 });
 
+app.use((err, req, res, next) => {
+  console.error('Error:', err);
+  res.status(err.status || 500).json({ error: err.message || 'Internal Server Error' });
+});
 
 // Start the server
 app.listen(port, () => {
