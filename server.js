@@ -6,8 +6,11 @@ const cors = require('cors');
 const dotenv = require('dotenv')
 dotenv.config();
 
+
+
 const app = express();
 const port = 4000;
+
 
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,11 +24,13 @@ app.use(cors(
 
 // Create a MySQL connection pool
 const pool = mysql.createPool({
-  host: '127.0.0.1',
-  user: 'root',
-  password:'Adeeba@777' ,
-  database: 'portfolio_db',
+  host: 'eu-cdbr-west-03.cleardb.net',
+  user: 'b13efadba3264b',
+  password:'0c955f3b' ,
+  database: 'heroku_17e924704263cd7',
 });
+
+app.set('view engine','ejs');
 
 
 
