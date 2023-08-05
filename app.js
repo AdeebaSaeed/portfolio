@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
  // Function to fetch data from the server and update the webpage
 function fetchDataAndDisplay() {
-  fetch('http://127.0.0.1:4000/get-data')
+  fetch('https://portfolio-db-a0c90bde31de.herokuapp.com/get-data')
     .then((response) => response.json())
     .then((data) => {
       // Handle the data here, e.g., display it in the data-container div
@@ -41,7 +41,7 @@ window.addEventListener('load', fetchDataAndDisplay);
     };
 
     // Send form data to the server
-    fetch('http://127.0.0.1:4000/submit-form', {
+    fetch('https://portfolio-db-a0c90bde31de.herokuapp.com/submit-form', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -93,7 +93,7 @@ window.addEventListener('load', fetchDataAndDisplay);
       const admin_pass = document.getElementById('admin_pass').value;
       
       // Send login data to the server
-      fetch('http://127.0.0.1:4000/login', {
+      fetch('https://portfolio-db-a0c90bde31de.herokuapp.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
