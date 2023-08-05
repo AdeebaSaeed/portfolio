@@ -89,7 +89,7 @@ app.get('/get-data', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'portfolio-db', 'index.html'));
+  res.sendFile(path.join(__dirname,'index.html'));
 });
 
 app.use((err, req, res, next) => {
