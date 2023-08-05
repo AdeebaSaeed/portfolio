@@ -86,7 +86,9 @@ app.get('/get-data', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch data from database.' });
   }
 });
-
+app.get('/', (req, res) => {
+  res.send('Hello, this is the Portfolio Database API.');
+});
 
 // Start the server
 app.listen(port, () => {
