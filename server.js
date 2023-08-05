@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors(
   {
-    origin:'http://127.0.0.1:5500',
+    origin:'https://portfolio-db-a0c90bde31de.herokuapp.com',
   }
 ));
 
