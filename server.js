@@ -11,7 +11,8 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 4000;
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'portfolio-db')));
+
 
 // Middleware to parse incoming request bodies
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -89,7 +90,7 @@ app.get('/get-data', async (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname,'index.html'));
+  res.sendFile(path.join(__dirname, 'portfolio-db', 'index.html'));
 });
 
 app.use((err, req, res, next) => {
